@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/profile_text_name"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Name"
+        app:layout_constraintBottom_toTopOf="@+id/profile_text_phone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <TextView
+        android:id="@+id/profile_text_phone"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Phone Number"
+        app:layout_constraintBottom_toTopOf="@+id/profile_text_email"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_text_name" />
+
+    <TextView
+        android:id="@+id/profile_text_email"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Email"
+        app:layout_constraintBottom_toTopOf="@+id/profile_text_password"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_text_phone" />
+
+    <TextView
+        android:id="@+id/profile_text_password"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Password"
+        app:layout_constraintBottom_toTopOf="@+id/profile_change_password_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_text_email" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="132dp"
+        android:layout_height="124dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/profile_img" />
+
+    <TextView
+        android:id="@+id/profile_value_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Shekhar Jha"
+        app:layout_constraintBottom_toTopOf="@+id/profile_value_phone"
+        app:layout_constraintStart_toEndOf="@+id/profile_text_name"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <TextView
+        android:id="@+id/profile_value_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="9999999999"
+        app:layout_constraintBottom_toTopOf="@+id/profile_value_email"
+        app:layout_constraintStart_toEndOf="@+id/profile_text_phone"
+        app:layout_constraintTop_toBottomOf="@+id/profile_value_name" />
+
+    <TextView
+        android:id="@+id/profile_value_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="skjha98@gmail.com"
+        app:layout_constraintBottom_toTopOf="@+id/profile_value_password"
+        app:layout_constraintStart_toEndOf="@+id/profile_text_email"
+        app:layout_constraintTop_toBottomOf="@+id/profile_value_phone" />
+
+    <TextView
+        android:id="@+id/profile_value_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Thisisthepassword"
+        app:layout_constraintBottom_toTopOf="@+id/profile_change_password_button"
+        app:layout_constraintStart_toEndOf="@+id/profile_text_password"
+        app:layout_constraintTop_toBottomOf="@+id/profile_value_email" />
+
+    <Button
+        android:id="@+id/profile_change_password_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="Change Password"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="113dp" />
+</android.support.constraint.ConstraintLayout>
