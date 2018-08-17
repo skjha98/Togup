@@ -2,4 +2,22 @@
     <string name="app_name">Togup</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
+    <string name="impressions">Impressions</string>
+    <string name="slash">/</string>
+    <string name="ten">10</string>
+    <string name="clicks">Clicks</string>
+    <string name="show_ads">Show Ads</string>
+
+    <string name="bannerTop">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="center1">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="center2">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="bannerBottom">ca-app-pub-3940256099942544/6300978111</string>
+
+    <string name="adMobID">ca-app-pub-3940256099942544~3347511713</string>
+    <string name="interstitialAd">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="rewardedVideoId">ca-app-pub-3940256099942544/5224354917</string>
+    <string name="terms_conditions"><![CDATA[Terms & Conditions]]></string>
+    <string name="terms_conditions_text">Terms and Conditions 1. You can withdraw at least after 30day 2. Failure/Breakage of not completing the task anyday, will restart the counter from day 1 and have to complete 30 days again. 3. Withdraw can only be done by PayTm</string>
+
+
 </resources>
