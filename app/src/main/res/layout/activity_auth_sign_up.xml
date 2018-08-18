@@ -79,7 +79,7 @@
         app:layout_constraintVertical_bias="0.519" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/sign_up"
         android:layout_width="143dp"
         android:layout_height="41dp"
         android:layout_margin="32dp"
@@ -97,6 +97,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
+        android:id="@+id/back_btn"
         android:layout_width="68dp"
         android:layout_height="42dp"
         android:layout_margin="32dp"

@@ -11,12 +11,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import com.google.android.gms.ads.MobileAds;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout mainDrawerLayout;
     private NavigationView navigationView;
     private ActionBarDrawerToggle mainDrawerToggle;
+    private FirebaseAuth mAuth;
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -40,7 +42,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        startActivity(new Intent(this,Splash.class));
+        mAuth = FirebaseAuth.getInstance();
+        if(mAuth.getCurrentUser() == null){
+
+            startActivity(new Intent(this,Splash.class));
+        }
         MobileAds.initialize(this,getString(R.string.adMobID));
 
 

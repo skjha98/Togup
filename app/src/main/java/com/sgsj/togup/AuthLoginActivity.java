@@ -9,6 +9,9 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class AuthLoginActivity extends AppCompatActivity {
     private TextView loginTab, signUpTab;
 
@@ -16,12 +19,12 @@ public class AuthLoginActivity extends AppCompatActivity {
 
     private PagerViewAdapter pagerAdapter;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         setContentView(R.layout.activity_login_main);
-
         loginTab = findViewById(R.id.auth_login_tab1);
         signUpTab = findViewById(R.id.auth_login_tab2);
 
