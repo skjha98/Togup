@@ -1,5 +1,6 @@
 package com.sgsj.togup;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -39,8 +40,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        startActivity(new Intent(this,Splash.class));
         MobileAds.initialize(this,getString(R.string.adMobID));
+
 
         mainDrawerLayout = findViewById(R.id.main_drawer_layout);
         navigationView = findViewById(R.id.main_navigation_view);
@@ -55,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (savedInstanceState == null) {
             navigationView.setCheckedItem(R.id.drawer_menu_dashboard);
         }
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
     }
 
     @Override

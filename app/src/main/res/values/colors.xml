@@ -5,4 +5,8 @@
     <color name="colorAccent">#FF4081</color>
     <color name="white">#fff</color>
     <color name="dark_gray">#6c6c6c</color>
+    <color name="black">#000000</color>
+    <color name="tabSelectedColor">#e63216</color>
+    <color name="tabNotSelectedColor">#f0000000</color>
+
 </resources>
