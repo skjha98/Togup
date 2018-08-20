@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,15 +19,31 @@ import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.reward.RewardItem;
 import com.google.android.gms.ads.reward.RewardedVideoAd;
 import com.google.android.gms.ads.reward.RewardedVideoAdListener;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
 
 
 public class DashboardFragment extends Fragment {
-
+    private EditText memail, mpassword, mphone,mconfirm,mname;
     private Button showAdButton;
     private InterstitialAd fullAd;
     private TextView countClick, countImpression;
+    private FirebaseAuth.AuthStateListener mAuthListener;
     private int click, impression;
     private RewardedVideoAd mRewardedVideoAd;
+    private DatabaseReference mdatabase;
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        update2firebase(click, impression);
+    }
 
     @Nullable
     @Override
@@ -68,13 +85,13 @@ public class DashboardFragment extends Fragment {
                 click++;
                 super.onAdLeftApplication();
             }
-
             @Override
             public void onAdClosed() {
                 impression++;
                 countClick.setText(click+ "");
                 countImpression.setText(impression + "");
                 fullAd.loadAd(new AdRequest.Builder().build());
+                update2firebase(click,impression);
                 super.onAdClosed();
 
             }
@@ -94,6 +111,7 @@ public class DashboardFragment extends Fragment {
 
             @Override
             public void onRewardedVideoStarted() {
+
 
             }
 
@@ -131,5 +149,29 @@ public class DashboardFragment extends Fragment {
 
         return view;
     }
+    private void update2firebase(int click, int impression){
+        FirebaseUser current_user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = current_user.getUid();
+
+        mdatabase = FirebaseDatabase.getInstance().getReference().child("RECORDS").child(uid);
+        HashMap<String, String> usermap = new HashMap<>();
+        int a = click;
+        int b = impression;
+        usermap.put("CLICK", String.valueOf(a));
+        usermap.put("IMPRESSION", String.valueOf(b));
+
+        mdatabase.setValue(usermap).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if(task.isSuccessful()){
+
+                }
+            }
+        });
+
+
+
+    }
+
 
 }

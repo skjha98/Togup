@@ -17,6 +17,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
 
 public class AuthSignUpActivity extends AppCompatActivity {
 
@@ -25,6 +29,8 @@ public class AuthSignUpActivity extends AppCompatActivity {
     private ImageView mbackbtn;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
+    private DatabaseReference mdatabase;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,14 +70,31 @@ public class AuthSignUpActivity extends AppCompatActivity {
 
     }
 
-    private void registerUser(String name, String email, String password, String phone, String confirm) {
+    private void registerUser(final String name, final String email, String password, final String phone, String confirm) {
         if(password.equals(confirm)){
             mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful()){
-                        startActivity(new Intent(AuthSignUpActivity.this,MainActivity.class));
-                        finish();
+                        FirebaseUser current_user = FirebaseAuth.getInstance().getCurrentUser();
+                        String uid = current_user.getUid();
+                        mdatabase = FirebaseDatabase.getInstance().getReference().child("Users").child(uid);
+                        HashMap<String, String> usermap = new HashMap<>();
+                        usermap.put("Name", name);
+                        usermap.put("Email", email);
+                        usermap.put("Phone", phone);
+                        mdatabase.setValue(usermap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if(task .isSuccessful()){
+                                    startActivity(new Intent(AuthSignUpActivity.this,MainActivity.class));
+                                    finish();
+
+
+                                }
+                            }
+                        });
+
 
                     }
                 }
