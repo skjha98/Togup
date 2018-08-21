@@ -26,6 +26,9 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 
 
@@ -149,28 +152,40 @@ public class DashboardFragment extends Fragment {
 
         return view;
     }
+
     private void update2firebase(int click, int impression){
         FirebaseUser current_user = FirebaseAuth.getInstance().getCurrentUser();
-        String uid = current_user.getUid();
+        if(current_user == null){
+            Toast.makeText(getActivity(), "Pta nhi kya chal rha h", Toast.LENGTH_SHORT).show();
 
-        mdatabase = FirebaseDatabase.getInstance().getReference().child("RECORDS").child(uid);
-        HashMap<String, String> usermap = new HashMap<>();
-        int a = click;
-        int b = impression;
-        usermap.put("CLICK", String.valueOf(a));
-        usermap.put("IMPRESSION", String.valueOf(b));
+        }else {
+            String uid = current_user.getUid();
 
-        mdatabase.setValue(usermap).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if(task.isSuccessful()){
+            mdatabase = FirebaseDatabase.getInstance().getReference().child("RECORDS").child(uid).child(todayDate());
+            HashMap<String, String> usermap = new HashMap<>();
+            int a = click;
+            int b = impression;
+            usermap.put("CLICK", String.valueOf(a));
+            usermap.put("IMPRESSION", String.valueOf(b));
 
+            mdatabase.setValue(usermap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if (task.isSuccessful()) {
+
+                    }
                 }
-            }
-        });
+            });
+        }
 
 
 
+    }
+
+    String todayDate(){
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        Date date = new Date();
+        return dateFormat.format(date);
     }
 
 

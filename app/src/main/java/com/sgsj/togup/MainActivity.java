@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if(mAuth.getCurrentUser() == null){
 
             startActivity(new Intent(this,Splash.class));
+            finish();
         }
         MobileAds.initialize(this,getString(R.string.adMobID));
 
