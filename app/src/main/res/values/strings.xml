@@ -8,14 +8,14 @@
     <string name="clicks">Clicks</string>
     <string name="show_ads">Show Ads</string>
 
-    <string name="bannerTop">ca-app-pub-3940256099942544/6300978111</string>
-    <string name="center1">ca-app-pub-3940256099942544/6300978111</string>
-    <string name="center2">ca-app-pub-3940256099942544/6300978111</string>
-    <string name="bannerBottom">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="bannerTop">ca-app-pub-9375529746971920/9336402303</string>
+    <string name="center1">ca-app-pub-9375529746971920/5672489464</string>
+    <string name="center2">ca-app-pub-9375529746971920/6682318800</string>
+    <string name="bannerBottom">ca-app-pub-9375529746971920/3673012084</string>
 
-    <string name="adMobID">ca-app-pub-3940256099942544~3347511713</string>
-    <string name="interstitialAd">ca-app-pub-3940256099942544/1033173712</string>
-    <string name="rewardedVideoId">ca-app-pub-3940256099942544/5224354917</string>
+    <string name="adMobID">ca-app-pub-9375529746971920~5782926832</string>
+    <string name="interstitialAd">ca-app-pub-9375529746971920/3098297017</string>
+    <string name="rewardedVideoId">ca-app-pub-9375529746971920/8105837843</string>
     <string name="terms_conditions"><![CDATA[Terms & Conditions]]></string>
     <string name="terms_conditions_text">Terms and Conditions 1. You can withdraw at least after 30day 2. Failure/Breakage of not completing the task anyday, will restart the counter from day 1 and have to complete 30 days again. 3. Withdraw can only be done by PayTm</string>
 

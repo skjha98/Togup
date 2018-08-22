@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
@@ -42,6 +43,9 @@ public class DashboardFragment extends Fragment {
     private RewardedVideoAd mRewardedVideoAd;
     private DatabaseReference mdatabase;
 
+    //Banner
+    private AdView topAd, center1Ad, center2Ad, bottomAd;
+
     @Override
     public void onResume() {
         super.onResume();
@@ -55,6 +59,17 @@ public class DashboardFragment extends Fragment {
         final View view = inflater.inflate(R.layout.fragment_dashboard, container, false);
 
         MobileAds.initialize(view.getContext(),getString(R.string.adMobID));
+
+        //Banners Start-Up
+        topAd = view.findViewById(R.id.dashboard_ad_top);
+        center1Ad = view.findViewById(R.id.dashboard_ad_center1);
+        center2Ad = view.findViewById(R.id.dashboard_ad_center2);
+        bottomAd = view.findViewById(R.id.dashboard_ad_bottom);
+        AdRequest adRequestBanner = new AdRequest.Builder().build();
+        topAd.loadAd(adRequestBanner);
+        center1Ad.loadAd(adRequestBanner);
+        center2Ad.loadAd(adRequestBanner);
+        bottomAd.loadAd(adRequestBanner);
 
         showAdButton = view.findViewById(R.id.dashboard_get_ad_button);
         fullAd = new InterstitialAd(view.getContext());
